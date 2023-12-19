@@ -10,14 +10,5 @@ COPY app.py /app
 COPY requirements.txt /app/requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# 阶段二：创建最终镜像
-FROM python:3.10-slim
-
-# 设置工作目录
-WORKDIR /app
-
-# 从第一阶段复制构建好的应用
-COPY --from=builder /app /app
-
 # 定义容器启动时运行的命令
 CMD ["python", "app.py"]
