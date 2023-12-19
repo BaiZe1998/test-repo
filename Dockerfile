@@ -6,8 +6,9 @@ WORKDIR /app
 # 复制应用代码到容器中
 COPY app.py /app
 
-# 安装 Flask 库
-RUN pip install flask
+# 安装 Flask 库及其他依赖（如果有）
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # 阶段二：创建最终镜像
 FROM python:3.10-slim
