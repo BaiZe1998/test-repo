@@ -1,5 +1,5 @@
 # 阶段一：构建应用
-FROM python:3.10 as builder
+FROM amd64/python:3.10 as builder
 
 WORKDIR /app
 
